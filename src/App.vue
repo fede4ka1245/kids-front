@@ -93,10 +93,10 @@ watch(
 }
 
 html, body {
-  position: relative;
+  touch-action: none;
   overflow: hidden;
-  width: 100%;
-  height: 100vh;
+  position: relative;
+  overscroll-behavior: none;
 }
 
 .content {
