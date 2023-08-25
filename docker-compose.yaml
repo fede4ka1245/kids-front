@@ -1,8 +1,8 @@
 services:
-  reports:
+  kids-front:
     env_file:
       - .env
-    container_name: reports
+    container_name: kids-front
     build:
       context: .
       dockerfile: Dockerfile
