@@ -4,9 +4,9 @@
     "display": "standalone",
     "scope": "/#/",
     "start_url": "/#/",
-    "name" : "КПинструктор",
-    "short_name" : "КПинструктор",
-    "description" : "Приложение для учета расходов",
+    "name" : "Арча сервис",
+    "short_name" : "Арча сервисЫ",
+    "description" : "Приложение для учета расписания",
     "icons": [
         {
             "src": "/icon-192x192.png",

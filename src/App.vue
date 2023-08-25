@@ -1,17 +1,15 @@
 <template>
-  <div class="app">
-    <div class="app-container">
-      <router-view></router-view>
-      <div>
-        <modal-root />
-      </div>
-      <app-loader
-        v-if="store.loading"
-      />
-      <app-confirm />
-      <app-alert />
-      <pwa-instraction />
+  <div class="app-container">
+    <router-view></router-view>
+    <div>
+      <modal-root />
     </div>
+    <app-loader
+      v-if="store.loading"
+    />
+    <app-confirm />
+    <app-alert />
+    <pwa-instraction />
   </div>
 </template>
 
@@ -89,15 +87,16 @@ watch(
 
 <style>
 * {
-  overscroll-behavior-y: none;
+  overscroll-behavior-y: none !important;
   margin: 0;
   padding: 0;
 }
 
 html, body {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
 }
 
 .content {
@@ -107,11 +106,5 @@ html, body {
 .app-container {
   max-width: 650px;
   margin: 0 auto;
-}
-
-.app {
-  height: 100vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 </style>
