@@ -16,14 +16,14 @@
         label="Пароль"
         type="password"
     />
-    <RouterLink class="q-mt-auto" to="/reg">
+    <RouterLink class="q-mt-auto" to="/admin-auth">
       <q-btn
         style="width: 100%"
         outline
         color="primary"
         no-caps
       >
-        Регистрация
+        Я администратор организации
       </q-btn>
     </RouterLink>
     <q-btn
@@ -40,15 +40,14 @@
 
 <script setup>
 import AppForm from "@/components/form/AppForm";
-import {computed, reactive, watch, watchEffect} from "vue";
+import {computed, reactive, watchEffect} from "vue";
 import router, {routes} from "@/router/router";
 import {store} from "@/store/store";
-import {storageKey} from "@/helpers/localStorage/storageKey";
 import {appAlert} from "@/components/appAlert/appAlert";
 
 const state = reactive({
   login: '',
-  password: ''
+  password: '',
 })
 
 const isEnterDisabled = computed(() => {
@@ -56,6 +55,8 @@ const isEnterDisabled = computed(() => {
 });
 
 const onEnterClick = async () => {
+  store.loading = true;
+
   const { error, data } = await store.supabase
       .from("Mentor")
       .select("*")
@@ -63,21 +64,31 @@ const onEnterClick = async () => {
       .eq("password", state.password)
 
   if (error || !data[0]) {
+    store.loading = false;
     await appAlert("Пользователь не найден!");
-    return;
+  } else {
+    store.user.data = data[0];
+    store.user.isAuth = true;
+
+    router.push({
+      path: routes.tutorPage.path,
+      replace: true
+    });
   }
 
-  store.user.data = data[0];
-  store.user.isAuth = true;
-
-  router.push({
-    path: routes.tutorPage.path,
-    replace: true
-  });
+  store.loading = false;
 }
 
 watchEffect(() => {
   if (store.user.isAuth) {
+    if (store.user.isAdmin) {
+      router.push({
+        path: routes.adminPage.path,
+        replace: true
+      });
+      return;
+    }
+
     router.push({
       path: routes.tutorPage.path,
       replace: true

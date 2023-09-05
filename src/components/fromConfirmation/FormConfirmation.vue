@@ -1,14 +1,14 @@
 <template>
   <section>
     <div style="width: calc(50% - 5px)">
-      <q-btn color="orange" outline class="btn" @click="props.dismissHandler">
+      <q-btn color="primary" outline class="btn" @click="props.dismissHandler">
         Отмена
       </q-btn>
     </div>
     <div style="width: calc(50% - 5px)" @click="props.onDisabledButtonClick">
       <q-btn
         :disable="isConfirmButtonDisabled"
-        color="orange"
+        color="primary"
         class="btn"
         @click="props.confirmHandler"
       >

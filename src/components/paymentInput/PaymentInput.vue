@@ -1,14 +1,6 @@
 <template>
   <div class="main">
-    <q-input
-      class="sum"
-      outlined
-      label="Сумма"
-      :model-value="props.sum"
-      type="number"
-      :error="props.sumError"
-      @update:model-value="(value) => props.updateSum(value)"
-    />
+§
     <div class="code">
       <money-code-select
         :model-value="props.code"

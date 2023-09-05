@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { getFormattedCurrentDate } from "@/helpers/reports/getFormattedCurrentDate";
+import { getFormattedCurrentDate } from "@/logic/reports/getFormattedCurrentDate";
 import { ref } from "vue";
 
 const props = defineProps({

@@ -33,6 +33,7 @@
       option-value="id"
       @filter="filterFn"
       class="q-pt-sm"
+      disable
       label="Группа"
     />
     <q-btn
@@ -64,9 +65,9 @@ import {computed, reactive, watchEffect} from "vue";
 import moment from "moment";
 import router, {routes} from "@/router/router";
 import {appConfirm} from "@/components/appConfirm/appConfirm";
-import {storageKey} from "@/helpers/localStorage/storageKey";
+import {storageKey} from "@/logic/localStorage/storageKey";
 import {store} from "@/store/store";
-import {getCurrentAttends} from "@/modalPages/helpers/getAttends";
+import {getCurrentAttends} from "@/logic/getAttends";
 import {appAlert} from "@/components/appAlert/appAlert";
 
 const state = reactive({

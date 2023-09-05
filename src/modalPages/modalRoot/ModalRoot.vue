@@ -17,7 +17,9 @@
           class="button-back"
           @click="closeModalPage"
         />
-
+        <EditMentor
+          v-if="getIsModalOpen(modalName.modalEditMentor)"
+        />
       </div>
     </div>
   </q-dialog>
@@ -27,6 +29,8 @@
 import { store } from "@/store/store";
 import { computed } from "vue";
 import { closeModalPage } from "@/modalPages/helpers/closeModalPage";
+import EditMentor from "@/modalPages/modalPages/EditMentor.vue";
+import {modalName} from "@/modalPages/helpers/modalName";
 
 const getIsModalOpen = (modal) => {
   return store.modalPages.activePageName === modal;

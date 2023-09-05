@@ -53,8 +53,8 @@
 
 <script setup>
 import { ref } from "vue";
-import { getRates } from "@/helpers/reports/getRates";
-import { getMoneyCodes } from "@/helpers/reports/getMoneyCodes";
+import { getRates } from "@/logic/reports/getRates";
+import { getMoneyCodes } from "@/logic/reports/getMoneyCodes";
 
 const props = defineProps({
   modelValue: {

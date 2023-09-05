@@ -19,7 +19,7 @@ import {onMounted, watch, watchEffect} from "vue";
 import AppConfirm from "@/components/appConfirm/AppConfirm.vue";
 import AppAlert from "@/components/appAlert/AppAlert.vue";
 import { appAlert } from "@/components/appAlert/appAlert";
-import {storageKey} from "@/helpers/localStorage/storageKey";
+import {storageKey} from "@/logic/localStorage/storageKey";
 import {store} from "@/store/store";
 import AppLoader from "@/components/appLoader/AppLoader";
 import PwaInstraction from "@/components/pwaInstraction/PwaInstraction";
@@ -27,6 +27,10 @@ import PwaInstraction from "@/components/pwaInstraction/PwaInstraction";
 onMounted(() => {
   if (localStorage.getItem(storageKey.user)) {
     store.user = JSON.parse(localStorage.getItem(storageKey.user));
+
+    if (store.user?.isAdmin) {
+      return;
+    }
 
     if (store.user?.data?.id) {
       store.supabase
@@ -65,6 +69,10 @@ watchEffect(async () => {
 });
 
 watchEffect(async () => {
+  if (store.user?.isAdmin) {
+    return;
+  }
+
   if (store.user?.data?.groupId) {
     store.user.data.group = await store.supabase
       .from("Group")
@@ -94,13 +102,14 @@ watch(
 
 html, body {
   touch-action: none;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
   overscroll-behavior: none;
 }
 
 .content {
   padding: 1em;
+  background: white;
 }
 
 .app-container {

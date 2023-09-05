@@ -34,7 +34,7 @@
           @click="getPrevAttend"
           no-caps
       >
-        Назад
+        Предыдущий
       </q-btn>
       <q-btn
           class="q-mt-sm"
@@ -44,7 +44,7 @@
           @click="getNextAttend"
           no-caps
       >
-        Вперед
+        Следующий
       </q-btn>
     </div>
     <q-btn

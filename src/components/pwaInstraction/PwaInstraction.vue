@@ -7,7 +7,7 @@
     v-model="state.isOpen"
     maximized
   >
-    <div style="border-radius: 20px 20px 0 0 !important;" class="dialog-content">
+    <div style="border-radius: 20px 20px 0 0 !important;" class="dialog-content main">
       <q-btn
         round
         dark-percentage
@@ -39,6 +39,12 @@ onMounted(() => {
 
 
 <style scoped>
+.main {
+  max-width: 850px;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
 .dialog-content {
   padding: 1em;
   margin-top: 5em;
@@ -52,6 +58,7 @@ onMounted(() => {
   height: 100%;
   border: none;
   margin-top: -10px;
+  padding-bottom: 90px;
   flex: 1;
 }
 </style>

@@ -9,6 +9,7 @@ export const store = reactive({
     text: "",
   },
   user: {
+    isAdmin: false,
     data: {},
     isAuth: false
   },

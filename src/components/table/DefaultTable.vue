@@ -1,32 +1,36 @@
 <template>
-  <q-table
-    class="app-table"
-    separator="cell"
-    :columns="tableProps.columns"
-    :rows="tableProps.rows"
-    hide-no-data
-    :hide-header="tableProps.hideHeader"
-    hide-pagination
-    :table-header-style="{
+  <div class="wrapper">
+    <q-table
+      virtual-scroll
+      class="app-table"
+      separator="cell"
+      :columns="tableProps.columns"
+      :rows="tableProps.rows"
+      :hide-header="tableProps.hideHeader"
+      hide-pagination
+      :loading="tableProps.loading"
+      :table-header-style="{
       background: '#808080',
       color: 'white',
       fontWeight: 'bold',
     }"
-    :pagination="{
+      table-class="app-table"
+      :pagination="{
       rowsPerPage: 0,
     }"
-  >
-    <template #body-cell="props">
-      <q-td :props="props">
-        <div class="cell">
-          {{ props.value }}
-        </div>
-      </q-td>
-    </template>
-    <template v-for="slotName in Object.keys($slots)" #[slotName]="props">
-      <slot :name="slotName" :props="props"></slot>
-    </template>
-  </q-table>
+    >
+      <template #body-cell="props">
+        <q-td :props="props">
+          <div class="cell">
+            {{ props.value }}
+          </div>
+        </q-td>
+      </template>
+      <template v-for="slotName in Object.keys($slots)" #[slotName]="props">
+        <slot :name="slotName" :props="props"></slot>
+      </template>
+    </q-table>
+  </div>
 </template>
 
 <script setup>
@@ -34,6 +38,10 @@ const tableProps = defineProps({
   columns: {
     type: Array,
     default: () => [],
+  },
+  loading: {
+    type: Boolean,
+    default: () => false,
   },
   rows: {
     type: Array,
@@ -53,6 +61,19 @@ const tableProps = defineProps({
 
 .app-table table {
   max-width: 100%;
+}
+
+.wrapper {
+  max-width: 100%;
+  height: 40em;
+  max-height: 40em;
+  overflow: scroll;
+  border-radius: 8px;
+  background: #dfdfdf;
+}
+
+.app-table tbody {
+  height: max-content;
 }
 
 .app-table td {
