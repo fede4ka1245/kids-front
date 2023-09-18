@@ -16,18 +16,18 @@
         label="Пароль"
         type="password"
     />
-    <RouterLink class="q-mt-auto" to="/admin-auth">
-      <q-btn
-        style="width: 100%"
-        outline
-        color="primary"
-        no-caps
-      >
-        Я администратор организации
-      </q-btn>
-    </RouterLink>
+<!--    <RouterLink class="q-mt-auto" to="/admin-auth">-->
+<!--      <q-btn-->
+<!--        style="width: 100%"-->
+<!--        outline-->
+<!--        color="primary"-->
+<!--        no-caps-->
+<!--      >-->
+<!--        Я администратор организации-->
+<!--      </q-btn>-->
+<!--    </RouterLink>-->
     <q-btn
-      class="q-mt-sm"
+      class="q-mt-sm q-mt-auto"
       color="primary"
       :disable="isEnterDisabled"
       @click="onEnterClick"
@@ -81,13 +81,13 @@ const onEnterClick = async () => {
 
 watchEffect(() => {
   if (store.user.isAuth) {
-    if (store.user.isAdmin) {
-      router.push({
-        path: routes.adminPage.path,
-        replace: true
-      });
-      return;
-    }
+    // if (store.user.isAdmin) {
+    //   router.push({
+    //     path: routes.adminPage.path,
+    //     replace: true
+    //   });
+    //   return;
+    // }
 
     router.push({
       path: routes.tutorPage.path,

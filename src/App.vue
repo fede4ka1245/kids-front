@@ -28,9 +28,9 @@ onMounted(() => {
   if (localStorage.getItem(storageKey.user)) {
     store.user = JSON.parse(localStorage.getItem(storageKey.user));
 
-    if (store.user?.isAdmin) {
-      return;
-    }
+    // if (store.user?.isAdmin) {
+    //   return;
+    // }
 
     if (store.user?.data?.id) {
       store.supabase
@@ -69,9 +69,9 @@ watchEffect(async () => {
 });
 
 watchEffect(async () => {
-  if (store.user?.isAdmin) {
-    return;
-  }
+  // if (store.user?.isAdmin) {
+  //   return;
+  // }
 
   if (store.user?.data?.groupId) {
     store.user.data.group = await store.supabase
