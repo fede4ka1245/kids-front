@@ -1,0 +1,80 @@
+{
+  "name": "reports",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "postinstall": "jetifier",
+    "start:server": "node ./server/server.js"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "@sentry/browser": "^7.7.0",
+    "@sentry/integrations": "^7.7.0",
+    "@sentry/tracing": "^7.7.0",
+    "@sentry/vue": "^7.7.0",
+    "@supabase/supabase-js": "^2.33.0",
+    "@types/gapi": "^0.0.44",
+    "axios": "^1.4.0",
+    "capacitor-email-composer": "^1.1.3",
+    "cordova-plugin-email-composer": "^0.10.0",
+    "cordova-plugin-file-opener2": "^3.0.5",
+    "core-js": "^3.8.3",
+    "currency-codes": "^2.1.0",
+    "exceljs": "^4.3.0",
+    "express": "^4.18.2",
+    "gapi": "^0.0.3",
+    "gapi-client": "^0.0.3",
+    "is-ios": "^2.1.0",
+    "is-online": "^10.0.0",
+    "jetifier": "^2.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "nanoid": "^3.3.4",
+    "quasar": "^2.11.8",
+    "register-service-worker": "^1.7.2",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.15",
+    "workbox-core": "^6.5.4",
+    "workbox-expiration": "^6.5.4",
+    "workbox-precaching": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-pwa": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.7.1",
+    "sass-loader": "^12.6.0",
+    "vue-cli-plugin-quasar": "~5.0.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

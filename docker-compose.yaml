@@ -1,0 +1,22 @@
+services:
+  kids-front:
+    env_file:
+      - .env
+    container_name: kids-front
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=$PORT
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '8181:8181'
+    restart: always
+    networks:
+      - default
+
+networks:
+  default:
+    external: false
