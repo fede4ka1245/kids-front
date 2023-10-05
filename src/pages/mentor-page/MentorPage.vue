@@ -77,7 +77,7 @@ const state = reactive({
 
 const onEditAttendsClick = async () => {
   state.isEditLoading = true;
-  const { data, error } = await getCurrentAttends(store.user.data?.group?.group?.groupId, store.user.data.organizationId);
+  const { data, error } = await getCurrentAttends(String(store.user.data?.group?.groupId).replaceAll(" ", ""), store.user.data?.organizationId);
   state.isEditLoading = false;
 
   if (data.length === 0 || error) {
