@@ -2,24 +2,27 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import Auth from "../pages/auth/Auth";
 import MentorPage from "../pages/mentor-page/MentorPage";
 import EditAttends from "../pages/editAttends/EditAttends";
+import AdminPage from "@/pages/adminPage/AdminPage.vue";
+import AdminAuth from "@/pages/adminAuth/AdminAuth.vue";
+import Reg from "@/pages/reg/Reg.vue";
 
 export const routes = {
   auth: {
     path: "/auth",
     component: Auth,
   },
-  // adminPanelAuth: {
-  //   path: "/admin-auth",
-  //   component: AdminAuth,
-  // },
-  // adminPage: {
-  //   path: "/admin-page",
-  //   component: AdminPage
-  // },
-  // reg: {
-  //   path: "/reg",
-  //   component: Reg,
-  // },
+  adminPanelAuth: {
+    path: "/admin-auth",
+    component: AdminAuth,
+  },
+  adminPage: {
+    path: "/admin-page",
+    component: AdminPage
+  },
+  reg: {
+    path: "/reg",
+    component: Reg,
+  },
   main: {
     path: "/",
     redirect: () => {

@@ -65,8 +65,6 @@ const tableProps = defineProps({
 
 .wrapper {
   max-width: 100%;
-  height: 40em;
-  max-height: 40em;
   overflow: scroll;
   border-radius: 8px;
   background: #dfdfdf;
